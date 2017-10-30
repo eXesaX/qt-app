@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>list.qml</file>
+        <file>form.qml</file>
+        <file>common.js</file>
+    </qresource>
+</RCC>
