@@ -1,11 +1,11 @@
 function createWindows(qmlname) {
      var component = Qt.createComponent(qmlname);
      console.log("Component Status:", component.status, component.errorString());
-     var c = component.createObject(window, {"x": 0, "y": 0});
+     var c = component.createObject(root, {"x": 0, "y": 0});
 //     c.show();
 }
 
-var BASE_URL = "http://192.168.43.45:5000"
+var BASE_URL = "http://10.32.14.34:5000"
 
 
 function request() {

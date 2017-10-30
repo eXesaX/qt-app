@@ -6,14 +6,14 @@ import "common.js" as Common
 
 
 Window {
-    id: window
+    id: root
     visible: true
     width: 640
     height: 480
     title: qsTr("Hello World")
 
     Component.onCompleted: {
-        Common.createWindows("list.qml");
+        Common.createWindows("form.qml");
     }
 
 

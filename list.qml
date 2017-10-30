@@ -2,11 +2,13 @@ import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtMultimedia 5.6
 import "common.js" as Common
-import QtWebView 1.1
+//import QtWebView 1.1
 
 Item {
     id: listViewItem
     visible: true
+    width: root.width
+    height: root.height
 
     ListModel{
         id: myModel
@@ -34,7 +36,7 @@ Item {
                         switch(modelData.type){
                             case "Text": return textDelegate
                             case "Image": return imageDelegate
-                            case "Web": return webDelegate
+//                            case "Web": return webDelegate
                             case "Video": return videoDelegate
                             case "Audio": return audioDelegate
                             default: return emptyDelegate
@@ -46,8 +48,8 @@ Item {
                     Component{
                         id: imageDelegate
                         Rectangle{
-                            width: root.width
-                            height: root.height/2
+                            width: listViewItem.width
+                            height: listViewItem.height/2
 
                             color: "#dfaadf"
 
@@ -56,10 +58,10 @@ Item {
                             }
                             Image {
                                 y: 20
-                                width: root.width
-                                height: root.height
+                                width: listViewItem.width
+                                height: listViewItem.height
 
-                                source: "/"+modelData.value
+                                source: Common.BASE_URL+modelData.value
                             }
                         }
                     }
@@ -70,14 +72,14 @@ Item {
 
 
                         Rectangle{
-                            width: root.width
-                            height: root.height/2
+                            width: listViewItem.width
+                            height: listViewItem.height/2
 
                             color: "#0f0adf"
 
                             SoundEffect {
                                 id: music
-                                source: "./"+modelData.value
+                                source: Common.BASE_URL+modelData.value
                             }
 
                             Text {
@@ -91,41 +93,41 @@ Item {
                         }
                     }
 
-                    Component{
-                        id:webDelegate
-                        Rectangle{
-                            width: root.width
-                            height: root.height
+//                    Component{
+//                        id:webDelegate
+//                        Rectangle{
+//                            width: root.width
+//                            height: root.height
 
-                            color: "#efaa00"
+//                            color: "#efaa00"
 
-                            Text {
-                                text: qsTr(modelData.title+"\n"+modelData.value)
-                            }
+//                            Text {
+//                                text: qsTr(modelData.title+"\n"+modelData.value)
+//                            }
 
-                            WebView {
-                                id: webView
-                                anchors.fill: parent
-                                url: modelData.value
-                                onLoadingChanged: {
-                                    if (loadRequest.errorString)
-                                        console.error(loadRequest.errorString);
-                                }
-                            }
+//                            WebView {
+//                                id: webView
+//                                anchors.fill: parent
+//                                url: modelData.value
+//                                onLoadingChanged: {
+//                                    if (loadRequest.errorString)
+//                                        console.error(loadRequest.errorString);
+//                                }
+//                            }
 
-                        }
-                    }
+//                        }
+//                    }
 
                     Component{
                         id: videoDelegate
                         Rectangle{
-                            width: root.width
-                            height: root.height
+                            width: listViewItem.width
+                            height: listViewItem.height
 
                             color: "#efaa00"
                             MediaPlayer {
                                 id: player
-                                source: "./"+modelData.value
+                                source: Common.BASE_URL+modelData.value
                             }
                             VideoOutput {
                                 anchors.fill: parent
@@ -148,8 +150,8 @@ Item {
                     Component{
                         id: emptyDelegate
                         Rectangle{
-                            width: root.width
-                            height: root.height/2
+                            width: listViewItem.width
+                            height: listViewItem.height/2
 
                             color: "#afddaf"
 
@@ -167,8 +169,8 @@ Item {
                     id: textDelegate
                     Rectangle {
 
-    //                                width: root.width
-    //                                height: root.height
+                        width: listViewItem.width
+                        height: listViewItem.height
                         color: "#0faa0f"
 
                         Text {

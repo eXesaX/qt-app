@@ -6,6 +6,10 @@ CONFIG += c++11
 SOURCES += main.cpp
 
 RESOURCES += qml.qrc
+RESOURCES += common.js
+RESOURCES += form.qml
+RESOURCES += list.qml
+RESOURCES += main.qml
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
