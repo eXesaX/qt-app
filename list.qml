@@ -207,18 +207,10 @@ Item {
                         print('DONE')
                         print(xhr.responseText)
                         var json = JSON.parse(xhr.responseText.toString())
-
-                        view.model = json.items
-
-            //                //mainView.model = json.items
-            //                for (var i = 0; i < json.items.length; i++) {
-            //                    mylistmodel.append(json.items[i]);
-            //                    console.log(json.items[i].itemtitle);
-            //                   }
+                        view.model = json.item
                     }
                     }
                     xhr.open("GET", Common.BASE_URL + "/favourite");
-                //        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
                     xhr.send();
             }
 
